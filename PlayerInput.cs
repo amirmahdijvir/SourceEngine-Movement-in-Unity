@@ -1,7 +1,6 @@
 using UnityEngine;
 
-[RequireComponent(typeof(CharacterController))]
-public class Movement : MonoBehaviour
+public class PlayerInput : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
