@@ -1,7 +1,7 @@
 using UnityEngine;
 
-[RequireComponent(typeof(CharacterController))]
-public class Movement : MonoBehaviour
+
+public class PlayerMovement : MonoBehaviour
 {
     CharacterController characterController;
     void Awake()

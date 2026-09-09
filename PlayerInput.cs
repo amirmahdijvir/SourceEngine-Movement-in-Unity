@@ -1,16 +1,34 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerInput : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+  
 
-    // Update is called once per frame
-    void Update()
+    InputSystem_Actions inputSystem;
+    public MovementConfig movementConfig = new MovementConfig();
+
+    private void Awake()
     {
-        
+        inputSystem = new InputSystem_Actions();
+        inputSystem.Player.Move.performed += (InputAction.CallbackContext ctx) =>
+        {
+            movementConfig.wishDirection = ctx.ReadValue<Vector2>();
+        };
+        inputSystem.Player.Look.performed += (InputAction.CallbackContext ctx) =>
+        {
+            movementConfig.lookDirection = ctx.ReadValue<Vector2>();
+            
+        };
+
     }
+    private void OnEnable()
+    {
+        inputSystem.Enable();
+    }
+    private void OnDisable()
+    {
+        inputSystem.Disable();
+    }
+   
 }
