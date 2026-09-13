@@ -64,6 +64,4 @@ The main goal of this project is to study and implement responsive movement mech
 
 ## Demo
 
-A gameplay video or GIF demonstrating the movement system will be added here.
-
 ![Source Engine Movement Demo](./demo.gif)
