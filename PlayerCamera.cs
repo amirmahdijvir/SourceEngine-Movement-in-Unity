@@ -3,7 +3,7 @@ using UnityEngine;
 public class PlayerCamera : MonoBehaviour
 {
     [SerializeField] Transform CameraTransform;
-    [SerializeField,Range(0,80)] float Sensitivity =2.5f;
+    [SerializeField,Range(0,80)] float Sensitivity =20f;
     float angel;
    public void Look(Vector2 lookDirection)
     {
