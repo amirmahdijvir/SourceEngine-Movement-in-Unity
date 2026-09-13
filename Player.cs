@@ -9,9 +9,11 @@ public class Player : MonoBehaviour
 {
     PlayerCamera playerCamera;
     PlayerInput playerInput;
+    PlayerMovement playerMovement;
     MovementConfig movementConfig;
     void Start()
     {
+        playerMovement = GetComponent<PlayerMovement>();
         playerInput = GetComponent<PlayerInput>();
         playerCamera = GetComponent<PlayerCamera>();
         movementConfig = playerInput.movementConfig;
@@ -22,5 +24,6 @@ public class Player : MonoBehaviour
     void Update()
     {
         playerCamera.Look(movementConfig.lookDirection);
+        playerMovement.MoveUpdate(movementConfig);
     }
 }
