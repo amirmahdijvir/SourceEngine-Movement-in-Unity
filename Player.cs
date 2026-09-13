@@ -1,10 +1,13 @@
 using UnityEngine;
 
+
+// Add the required components to the Player GameObject
 [RequireComponent(typeof(CharacterController))]
 [RequireComponent(typeof(PlayerInput))]
 [RequireComponent(typeof(PlayerCamera))]
 [RequireComponent(typeof(CharacterController))]
 [RequireComponent(typeof(PlayerMovement))]
+[RequireComponent(typeof(CapsuleCollider))]
 public class Player : MonoBehaviour
 {
     PlayerCamera playerCamera;
@@ -17,12 +20,13 @@ public class Player : MonoBehaviour
         playerInput = GetComponent<PlayerInput>();
         playerCamera = GetComponent<PlayerCamera>();
         movementConfig = playerInput.movementConfig;
-        
+        playerInput.OnJumpPressed += (isPressed) => movementConfig.isJumpPressed = isPressed;
     }
 
-    // Update is called once per frame
     void Update()
     {
+        
+        playerInput.bunnyHop = movementConfig.bunnyhop;
         playerCamera.Look(movementConfig.lookDirection);
         playerMovement.MoveUpdate(movementConfig);
     }
